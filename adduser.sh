@@ -75,3 +75,4 @@ if [ $enable = enable_on ];
         echo "enable не включен."
 fi
 echo "==============="
+echo "ku-ku"
