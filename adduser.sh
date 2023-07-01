@@ -5,6 +5,32 @@
 #можно использовать user_name= home_folder= ssh_access= enable=
 #можно -user_name -home_folder -ssh_access -enable
 
+
+#help function example
+Help()
+{
+   echo "Скрипт предназначен для добавления пользователей по заданным параметрам."
+   echo "Для корректной работы скрипта необходимо указать 4 аргумента."
+   echo "1) Имя пользователя"
+   echo "2) Имя папки пользователя"
+   echo "3) ssh_access_on или ssh_access_off для подключения\отключения SSH доступа"
+   echo "4) enable_on или enable_off"
+   echo "_______________"
+   echo "Пример: sh $0 User1 USER1 access_on enable_off"
+}
+
+
+#getopts function usage code snippet
+while getopts ":h" option; do
+   case $option in
+      h) # display Help
+         Help
+         exit;;
+   esac
+done
+
+
+
 # Проверка колличества аргументов. Должно быть 4.
 if [ -n "$4" ];
     then
