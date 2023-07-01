@@ -16,7 +16,7 @@ Help()
    echo "3) ssh_access_on или ssh_access_off для подключения\отключения SSH доступа"
    echo "4) enable_on или enable_off"
    echo "_______________"
-   echo "Пример: sh $0 User1 USER1 access_on enable_off"
+   echo "Пример: sh $0 User1 USER1 ssh_access_on enable_off"
 }
 
 
