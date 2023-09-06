@@ -1,0 +1,13 @@
+import string # необходимый модуль string
+
+text = input("Введите текст: ")
+
+count_big_letters = len([char for char in text if char.isupper()]) # char.isupper() - большие буквы
+count_small_letters = len([char for char in text if char.islower()]) # char.islower() - маленькое буквы
+count_digits = len([char for char in text if char.isdigit()]) # char.isdigit() - цифры
+count_punctuation = len([char for char in text if char in string.punctuation]) # string.punctuation - знаки препинания
+
+print("Количество больших букв:", count_big_letters)
+print("Количество маленьких букв:", count_small_letters)
+print("Количество цифр:", count_digits)
+print("Количество знаков препинания:", count_punctuation)
