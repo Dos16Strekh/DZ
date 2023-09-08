@@ -6,7 +6,7 @@ import subprocess
 from datetime import datetime
 from pathlib import Path
 
-ips = ['8.8.8.8', '8.8.4.4', '192.168.1.1']
+ips = ('8.8.8.8', '8.8.4.4', '192.168.1.1')
 
 # Форматируем дату и время для записи в файл
 current_datetime = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
@@ -18,11 +18,14 @@ if not log_ip_scan.exists():
 with open(log_ip_scan, "a") as f:
     f.write('\n \n \n==========\n' + current_datetime)
 
+index_ips = 0 
+
 for ping_process in ips:
-    command = ['ping', '-c2', '-w10', '-n']
-    process = subprocess.run(command + ips , stdout=subprocess.PIPE)
+    command = ['ping', '-c2', '-w10', '-n', ips[index_ips]]
+    process = subprocess.run(command, stdout=subprocess.PIPE)
     output = process.stdout.decode()
     print(output)
     log_ip_scan = open('log_ip_scan.log', 'a',)
     log_ip_scan.write( '\n==========\n' + output)
     log_ip_scan.close
+    index_ips+=1
