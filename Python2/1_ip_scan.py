@@ -12,13 +12,16 @@ ips = ('8.8.8.8', '8.8.4.4', '192.168.1.1')
 current_datetime = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
 # Открываем файл для записи
+
+# Проверка на наличие файла
 log_ip_scan = Path("./log_ip_scan.log")
 if not log_ip_scan.exists():
     log_ip_scan.touch()
+
 with open(log_ip_scan, "a") as f:
     f.write('\n \n \n==========\n' + current_datetime)
 
-index_ips = 0 
+index_ips = 0 # Переменная для цикла (индекс элементов списка)
 
 for ping_process in ips:
     command = ['ping', '-c2', '-w10', '-n', ips[index_ips]]
@@ -28,4 +31,4 @@ for ping_process in ips:
     log_ip_scan = open('log_ip_scan.log', 'a',)
     log_ip_scan.write( '\n==========\n' + output)
     log_ip_scan.close
-    index_ips+=1
+    index_ips+=1 # Индекс элемента списка +1
