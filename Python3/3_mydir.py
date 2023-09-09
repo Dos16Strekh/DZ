@@ -22,9 +22,11 @@ file_names = [ 'file1.txt','file2.txt', 'file3.txt']
 for file_name in file_names:
     if not os.path.exists(file_name): # Сначала проверяем, существует ли файл
         file_name = open(file_name, 'w')
+        file_name.close
     else:
         print( 'Файл с именем ', file_name, ' существует.')
 
 # выводим список файлов
+print( '\nСодержимое папки', path,':\n')
 for ls in os.listdir('.'):
     print(ls)
